@@ -84,6 +84,30 @@ header p {
   min-height: 24px;
 }
 
+.preview-container {
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.preview-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .editor-container {
   background: white;
   border: 1px solid #e2e8f0;
