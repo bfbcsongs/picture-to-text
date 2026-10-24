@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Notes to Text</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Tesseract.js library for OCR directly in browser -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>NoteScan</h1>
+      <p>Convert paper notes & screenshots into editable text</p>
+    </header>
+
+    <!-- Upload Buttons -->
+    <div class="button-group">
+      <!-- Capture using Phone Camera -->
+      <label class="btn btn-primary">
+        📷 Take Photo / Camera
+        <input type="file" id="imageInputCamera" accept="image/*" capture="environment">
+      </label>
+
+      <!-- Pick Screenshot or Image from Device -->
+      <label class="btn btn-secondary">
+        🖼️ Upload Screenshot / Gallery
+        <input type="file" id="imageInputGallery" accept="image/*">
+      </label>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status" class="status"></div>
+
+    <!-- Text Output Box -->
+    <div class="editor-container">
+      <div class="editor-header">
+        <span>Editable Text Output</span>
+        <button id="copyBtn" class="btn-copy">Copy Text</button>
+      </div>
+      <textarea id="outputArea" placeholder="Scanned text will appear here. You can edit it directly!"></textarea>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
