@@ -3,24 +3,32 @@ const galleryInput = document.getElementById('imageInputGallery');
 const statusDiv = document.getElementById('status');
 const outputArea = document.getElementById('outputArea');
 const copyBtn = document.getElementById('copyBtn');
+const previewContainer = document.getElementById('previewContainer');
+const imagePreview = document.getElementById('imagePreview');
 
 // Function to run OCR on selected image
 async function processImage(file) {
   if (!file) return;
 
+  // 1. Display Image Preview
+  const imageUrl = URL.createObjectURL(file);
+  imagePreview.src = imageUrl;
+  previewContainer.style.display = 'block';
+
+  // 2. Set Status
   statusDiv.innerText = 'Initializing scanner...';
   outputArea.value = '';
 
   try {
-    // Create OCR worker using Tesseract.js
+    // 3. Create OCR worker using Tesseract.js
     const worker = await Tesseract.createWorker('eng');
 
     statusDiv.innerText = 'Extracting text... Please wait...';
     
-    // Recognize text from image
+    // 4. Recognize text from image
     const ret = await worker.recognize(file);
     
-    // Put extracted text into textarea
+    // 5. Output extracted text into textarea
     outputArea.value = ret.data.text;
     statusDiv.innerText = 'Extraction complete!';
     
